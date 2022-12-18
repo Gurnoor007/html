@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <h1>JAVASCRIPT AND DOM</h1>
+        <ul>
+            <li>Home</li>
+            <li>about</li>
+            <li>settings</li>
+        </ul>
+        <input id="toggleButton" type="button" value="toggle">
+        <input id="counting" type="button" value="count">
+        <input id="btn" type="button" value="change">
+        <p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi recusandae fugit, dignissimos
+            quae sapiente, aliquam ex ab placeat magnam dicta, atque unde dolore! Illo, mollitia iure deleniti
+            laboriosam laborum sequi!</p>
+            <p id="datetime">DATE AND TIME IS: <span id="datetime1">Default</span></p>
+            <input id="stop" type="button" value="STOP">
+
+    </div>
+    morocco for the next wc(2026)
+
+
+    <script>
+        document.getElementById("mainDiv");
+        console.log(mainDiv);
+
+        let AlertButton = document.getElementById("AlertButton");
+        let para = document.getElementById("para")
+        toggleButton.onclick = function toggleVisibility() {
+            if (para.style.display != "none") {
+                para.style.display = "none"
+            }
+            else {
+                para.style.display = "block"
+            }
+        }
+
+        let counting = document.getElementById("counting")
+        counting.onclick = function countUptoTen() {
+            let a = 1
+            for (a = 1; a < 11; a++)
+                console.log(a)
+        }
+
+        para.addEventListener("mouseover", function testHandler() {
+            console.log("mouse is over paragraph")
+
+        })
+        para.addEventListener("mouseout", function testHandler2() {
+            console.log("mouse is out of paragraph")
+        })
+
+        function generateRandomColor() {
+            var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            return randomColor;
+        }
+        let btn = document.getElementById("btn")
+        btn.addEventListener('click', function onClick() {
+            para.style.color = generateRandomColor()
+        });
+        // function greet(){
+        //      console.log("Hello world")
+        //  }
+        // // let timeout= setTimeout(greet,5000)
+        // // clearTimeout(timeout);
+        // interval=setInterval(greet,2000)
+
+        let textChange=document.getElementById("datetime1")
+        function display(){
+            let dateTime=new Date();
+            console.log(dateTime)
+            textChange.innerHTML=dateTime;
+        }
+        setInterval(display,1000)
+        
+         let stop1 = document.getElementById("stop")
+         stop1.onclick = function stopTheTimer() {
+            clearInterval(display);
+            
+         }
+         
+    </script>
+
+</body>
+
+</html>
